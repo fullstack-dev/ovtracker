@@ -1,0 +1,219 @@
+/* Background Hero */
+.home-pg-header {
+  height: 406px;
+  box-sizing: border-box;
+  position: relative;
+  background-image: radial-gradient(circle 774px at 93.71% 1.09%, #283891 0%, #9b4dca 100%);
+}
+
+.home-pg-header:before {
+  content: "";
+  background-image: radial-gradient(circle 774px at 93.71% 1.09%, #283891 0%, #9b4dca 100%);
+  height: 180px;
+  transform: skewY(2deg);
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.home-pg-header:after {
+  content: "";
+  background-image: radial-gradient(circle 774px at 93.71% 1.09%, #283891 0%, #9b4dca 100%);
+  height: 556px;
+  transform: skewY(-5deg);
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.home-pg-header:before {
+  top: -50px;
+}
+
+.home-pg-header:after {
+  bottom: -80px;
+}
+
+.home-pg-header .col-lg-8 {
+  margin-top: 130px;
+}
+
+/* CTAs */
+
+/* CTA Title Text */
+.hero-cta-title {
+  width: 282px;
+  font-size: 50px;
+  font-weight: 400;
+  color: #FECB9A;
+  margin-left: 40%;
+}
+
+/* Paragraph text */
+.hero-cta-p {
+  width: 323px;
+  height: 30px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 200;
+  line-height: 25px;
+  margin-left: 40%;
+}
+
+/* Paragraph 2 text */
+.hero-cta-p2 {
+  width: 323px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 100;
+  margin-left: 40%;
+}
+
+/* CTA button */
+.hero-cta-button {
+  width: 153px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  text-transform: uppercase;
+  margin-top: 2%;
+  margin-left: 40%;
+  color: black !important;
+}
+
+/* Secondary CTA link */
+#hero-secondary-cta {
+  height: 11px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+a #hero-secondary-cta {
+  text-decoration: none;
+}
+
+/* Logo */
+#logo {
+  width: 300px;
+  height: 300px;
+  margin-top: 3%;
+  margin-left: 20%;
+}
+
+/* Div for cards*/
+#second-half {
+  margin-top: -2%;
+}
+
+#contact {
+  text-align: center;
+  margin-top: 9%;
+  font-weight: bold;
+}
+
+.three-words {
+  text-align: center;
+  font-weight: 300;
+  font-style: italic;
+  color: #6C58C9;
+}
+
+@media (max-width: 600px) {
+  #logo {
+    display: none;
+  }
+
+  .hero-cta-title {
+    margin-left: 2%;
+  }
+
+  .hero-cta-p {
+    margin-left: 2%;
+  }
+
+  .hero-cta-p2 {
+    margin-left: 2%;
+  }
+
+  .hero-cta-button {
+    margin-left: 2%;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  #logo {
+    float: right;
+    margin-top: 15%;
+  }
+
+  .hero-cta-title {
+    margin-top: 8%;
+    margin-left: 4%;
+  }
+
+  .hero-cta-p {
+    margin-left: 4%;
+  }
+
+  .hero-cta-p2 {
+    margin-left: 4%;
+  }
+
+  .hero-cta-button {
+    margin-left: 4%;
+  }
+
+  #hero-secondary-cta {
+    margin: auto;
+  }
+
+}
+
+@media (min-width: 701px) {
+
+  #logo {
+    margin-top: 15%;
+    /*margin-left: -30%;*/
+  }
+
+  .hero-cta-title {
+    margin-top: 8%;
+    margin-left: 20%;
+  }
+
+  .hero-cta-p {
+    margin-left: 20%;
+  }
+
+  .hero-cta-p2 {
+    margin-left: 20%;
+  }
+
+  .hero-cta-button {
+    margin-left: 20%;
+  }
+
+  #hero-secondary-cta {
+    margin: auto;
+  }
+
+}
+
+@media (min-width: 1009px) {
+
+  #logo {
+    margin-top: 2%;
+    margin-left: -30%;
+  }
+
+  .hero-cta-title {
+    margin-top: 4%;
+  }
+
+}

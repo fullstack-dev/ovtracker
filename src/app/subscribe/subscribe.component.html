@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1><strong>Plans you can subscribe to</strong></h1>
+      <br>
+      <h3><strong>Step 1: Add a Payment Source</strong></h3>
+
+      <payment-form [totalAmount]="0" (stripeResult)="setSource($event)"></payment-form>
+
+      <h4>Or choose an existing payment source</h4>
+
+      <user-sources [canSelect]="true" (selectedSource)="setSource($event)"></user-sources>
+
+      <h3><strong>Step 2: Activate a Plan</strong></h3>
+
+      <div class="notification">
+        Selected Payment Source: {{ sourceId || 'none' }}
+      </div>
+
+      <div class="columns">
+        <div class="column is-6">
+          <h4>Google Sheets Integration</h4>
+          <p>Your data on your terms.</p>
+          <h1>$1.99 /m</h1>
+          <img src="/assets/gold.png">
+
+          <subscription-plan [planId]="'OvTrackerSheets'" [sourceId]="sourceId"></subscription-plan>
+        </div>
+
+        <div class="column is-6">
+          <h4>Learning Cycles</h4>
+          <p>We'll safely save your cycle data. So you alwasy have a back up & will add in our learning algorithm.</p>
+          <h1>$2.99 /m</h1>
+          <img src="/assets/silver.png">
+
+          <subscription-plan [planId]="'OvTrackerLearningCyles'" [sourceId]="sourceId"></subscription-plan>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

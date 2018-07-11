@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Basic Ovulation Calculator</h1>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+
+      <div class="alert-danger" *ngIf="!auth.user | async as user">
+        <p>You are not <a (click)="auth.login()">logged in</a>.</p>
+        <p>Looking to run some quick calculations? You're in the right spot!</p>
+        <p>If you would like to save your dates and track ongoing cycles please <a (click)="auth.login()">Log
+          In (or Register)</a>. Once logged in
+          navigate to <em>"Your Calculator"</em> to begin saving information.</p>
+      </div>
+
+      <div class="alert-warning" *ngIf="auth.user | async as user">
+        <p>If you're are looking to run some quick calculations please use this page.</p>
+        <p>However, if you would like to save your dates and track ongoing cycles please. Go to your <a
+          routerLink="../calculator">Calculator</a>.</p>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading"><strong>Step 1: Enter dates</strong></div>
+        <div class="panel-body">
+          <p>Enter previous month's period date<br>
+            <strong><input type="date" [(ngModel)]="previousPeriod"
+                           required/></strong></p><br>
+          <p>Enter current or most recent period date<br>
+            <strong><input type="date" [(ngModel)]="currentPeriod" required/></strong>
+          </p>
+        </div>
+      </div>
+      <br>
+      <div class="panel panel-primary">
+        <div class="panel-heading"><strong>Step 2: Click the calculate button</strong></div>
+        <div class="panel-body">
+          <button class="button button-outline" (click)="ovulationCalculator()">Calculate</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <h3>Calculated Dates</h3>
+      <!--TODO: Get the ng popover to work, to replace dismissible messages-->
+      <p>Your menstrual cycle was <strong>{{ days }}</strong> days.</p>
+
+      <!--<div class="alert alert-info alert-dismissible fade in" role="alert">-->
+        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span-->
+          <!--aria-hidden="true">&times;</span></button>-->
+        <!--This is the time from the first day of your period to-->
+        <!--the day before your next period.-->
+      <!--</div>-->
+
+      <p>Your last ovulation occurred on day <strong>{{ ovulationDay }}</strong> approximately <strong><input
+        type="date"
+        [(ngModel)]="lastOvulation"
+        readonly/></strong>
+      </p>
+
+      <!--<div class="alert alert-info alert-dismissible fade in" role="alert">-->
+        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span-->
+          <!--aria-hidden="true">&times;</span></button>-->
+        <!--Ovulation is the release of egg(s) by the ovaries into the fallopian tube to be fertilized by sperm.-->
+      <!--</div>-->
+
+      <p>Your ovulation window was between <strong><input type="date" [(ngModel)]="ovulationWindow1" readonly/></strong>
+        and <strong><input
+          type="date"
+          [(ngModel)]="ovulationWindow2" readonly/></strong>
+      </p>
+
+      <!--<div class="alert alert-info alert-dismissible fade in" role="alert">-->
+        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span-->
+          <!--aria-hidden="true">&times;</span></button>-->
+        <!--Ovulation window or fertile window refers to the most fertile days in your menstrual cycle which gives you the-->
+        <!--highest chance of conceiving).-->
+      <!--</div>-->
+
+      <p>Your next menstruation date will likely be <strong><input type="date" [(ngModel)]="nextPeriod"
+                                                                   readonly/></strong></p>
+
+      <p>Your next ovulation date will likely be <strong><input type="date" [(ngModel)]="nextOvulation"
+                                                                readonly/></strong></p>
+
+      <p>Your next ovulation window will be between
+        <strong><input type="date" [(ngModel)]="ovulationWindow3" readonly/> and <input type="date"
+                                                                                        [(ngModel)]="ovulationWindow4"
+                                                                                        readonly/><br/></strong></p>
+
+
+      <!--<div class="alert alert-info alert-dismissible fade in" role="alert">-->
+        <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span-->
+          <!--aria-hidden="true">&times;</span></button>-->
+        <!--Ovulation window or fertile window refers to the most fertile days in your menstrual cycle which gives you the-->
+        <!--highest chance of conceiving.-->
+      <!--</div>-->
+
+      <div>
+        <p>Unlikely times of conceiving are:</p>
+        <strong><input type="date" [(ngModel)]="safePeriod1" readonly/></strong> TO
+        <strong><input type="date" [(ngModel)]="safePeriod2" readonly/></strong> <br><strong>AND</strong><br>
+        <strong><input type="date" [(ngModel)]="safePeriod3" readonly/></strong> TO
+        <strong> <input type="date" [(ngModel)]="safePeriod4" readonly/></strong><br/>
+      </div>
+    </div>
+
+  </div>
+</div>

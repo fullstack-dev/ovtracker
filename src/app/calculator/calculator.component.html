@@ -1,0 +1,105 @@
+<ng-progress  [minimum]="0.15" [maximum]="1" [speed]="100" [ease]="'linear'"
+              [spinner]="false" [spinnerPosition]="'right'" [direction]="'leftToRightIncreased'"
+              [color]="'#9b4dca'" [trickleSpeed]="250" [thick]="true"
+></ng-progress>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+
+      <div id="intro">
+        <h2 style="color:#9b4dca; text-align: center;">Welcome to your personal calculator.</h2>
+        <p style="text-align: center;"><strong>Enter your dates to begin tracking your cycles.
+          Not sure what this page is about? Learn more <a
+            routerLink="../about-us">here</a>.</strong></p><br>
+      </div>
+
+      <div id="step-1-background">
+        <h2 class="step-titles">1. Previous Period</h2>
+        <p>Enter previous month's period date <input type="date"
+                                                     [(ngModel)]="previousPeriod"
+                                                     required/></p>
+      </div>
+      <br>
+
+      <div id="step-2-background">
+        <h2 class="step-titles">2. Most Recent Period</h2>
+        <p>Enter this month's or most recent period date <input type="date"
+                                                                [(ngModel)]="currentPeriod"
+                                                                required/></p><br>
+      </div>
+      <br>
+
+      <div id="step-3-background">
+        <h2 class="step-titles">3. Click the Button</h2>
+        <p>Your results will appear below ...</p>
+        <button class="button" (click)="ovulationCalculator()">Calculate</button>
+      </div>
+      <br>
+
+      <div id="step-4-background">
+        <h2 class="step-titles">4. Connect to Google Calendar & Sheets</h2>
+        <p>Your results are below. But you'll need to confirm access to Google
+          Calendar and Google Sheets, in order to save the dates. Click the button below.</p>
+        <button class="button button-outline" (click)="authToGoogle()">Connect Calendar & Sheets</button>
+      </div>
+      <br>
+
+      <div id="step-5-background">
+        <h2 class="step-titles">5. Create Your Own OvTracker Google Calendar & Sheet</h2>
+        <p>Next create a dedicated Calendar and Sheet and save your data. Begin by clicking each of the buttons below.</p>
+        <p class="alert-warning"><strong>Important:</strong> We don't save your data on our servers. After you Calendar and Sheet is created
+          if you delete it within your Google account all your data will be lost. And we will be unable to post future dates!
+          If you do delete your Calendar or Sheet for any reason, and want to start tracking again; you'll need to return to
+          this page and create a new Calendar and Sheet to restart the process. Check out our <a routerLink="../faqs">FAQs</a> to learn more.</p>
+
+        <br>
+        <p>Step 1</p>
+        <button class="button button-outline" (click)="createCalendar()" [disabled]="!!currentCalendarId">Create a Calendar</button><br>
+        <p>Step 2</p>
+        <button class="button button-outline" (click)="addCalendarEvents()">Add Cycle Events to Calendar</button><br>
+        <!--<button class="button button-outline" (click)="listUpcomingEvents()">List Calendar Events</button>-->
+        <br>
+        <p>Step 3</p>
+        <button class="button button-outline" (click)="createSheet()" [disabled]="!!sheetId">Create a Sheet</button><br>
+        <p>Step 4</p>
+        <button class="button button-outline" (click)="addRecurringSheetEvents()">Add Cycle Events to Sheet</button>
+      </div>
+      <br>
+
+      <div id="results">
+        <h1 class="step-titles">Results</h1>
+        <p>These results have been posted to your Google Calendar and Sheet.</p><br>
+        <p>Your menstrual cycle is <strong>{{ days }}</strong> days.</p>
+        <p>Your last Ovulation occurred on day <strong>{{ ovulationDay }}</strong> approximately <input type="date"
+                                                                                                        [(ngModel)]="lastOvulation"
+                                                                                                        readonly/>.</p>
+
+        <p>Your ovulation window was between <input type="date"
+                                                    [(ngModel)]="ovulationWindow1"
+                                                    readonly/> and <input
+          type="date"
+          [(ngModel)]="ovulationWindow2" readonly/>.
+        </p>
+        <p>Your next menstruation date will likely be <input type="date"
+                                                             [(ngModel)]="nextPeriod"
+                                                             readonly/>.</p>
+        <p>Your next ovulation date will likely be <input type="date"
+                                                          [(ngModel)]="nextOvulation"
+                                                          readonly/>.</p>
+        <p>Your next ovulation window will be between
+          <input type="date" [(ngModel)]="ovulationWindow3" readonly/> and <input type="date"
+                                                                                  [(ngModel)]="ovulationWindow4"
+                                                                                  readonly/>.</p><br/>
+
+        <p>Unlikely times of possibly conceiving are</p>
+        <input type="date" [(ngModel)]="safePeriod1" readonly/> TO
+        <input type="date" [(ngModel)]="safePeriod2" readonly/> <br>AND<br>
+        <input type="date" [(ngModel)]="safePeriod3" readonly/> TO
+        <input type="date" [(ngModel)]="safePeriod4" readonly/>.<br/>
+        <br>
+        <p>That's it! Your dates will automatically each month be populated in your Google Calendar.</p><br>
+      </div>
+
+    </div>
+  </div>
+</div>

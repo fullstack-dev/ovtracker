@@ -1,0 +1,17 @@
+#header {
+  padding: 15px;
+}
+
+.terms-color {
+  box-sizing: border-box;
+  position: relative;
+  background-image: radial-gradient(circle 774px at 93.71% 1.09%, #FECB9A 0%, #FF699D 100%);
+}
+
+#body {
+  font-size: 11pt;
+  width: 100%;
+  margin: 0 auto;
+  text-align: justify;
+  padding: 15px;
+}

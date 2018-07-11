@@ -1,0 +1,19 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" routerLink="/">
+      <img src="/favicon.ico">
+    </a>
+
+    <button class="button navbar-burger" [class.is-active]="isActive" (click)="toggleActive()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="navbar-menu" [class.is-active]="isActive" (click)="setActive(false)">
+    <a routerLink="profile" class="navbar-item" *ngIf="auth.user">Profile</a>
+    <a routerLink="cycles" class="navbar-item" *ngIf="auth.user">Cycles</a>
+    <button (click)="auth.signOut()" class="button is-danger" *ngIf="auth.user | async">Logout</button>
+  </div>
+
+</nav>

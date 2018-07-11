@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+
+      <app-add-cycles></app-add-cycles>
+      <br>
+      <h3><strong>Cycle History</strong></h3>
+      <br>
+      <div *ngIf="items?.length > 0;else noItems">
+        <mat-card *ngFor="let item of items" class="collection">
+
+          <mat-card-content>
+            <!--<strong>Cycle ID:</strong> {{item.cycleId}}<br>-->
+            <!--<strong>Cycle Length:</strong> -->
+            {{item.periodStartDate | date:'fullDate'}} to
+            {{item.periodEndDate | date:'fullDate'}}
+
+            <a>
+              <i (click)="editCycle($event, item)" class="fas fa-edit" color="accent"></i>
+              <i *ngIf="editState && itemToEdit.cycleId == item.cycleId" (click)="clearState()"></i>
+            </a>
+
+              <a>
+                <span (click)="deleteCycle($event, item)"><i  class="fas fa-trash-alt" style="color:#FF0000;"></i></span>
+                <i *ngIf="editState && itemToEdit.cycleId == item.cycleId" (click)="clearState()"></i>
+              </a>
+            <!--<button mat-raised-button style="color: red;" (click)="openDeleteCycleDialog()">Learn More</button>-->
+
+            <div *ngIf="editState && itemToEdit.cycleId == item.cycleId">
+              <form (ngSubmit)="updateCycle(item)">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input type="text" [(ngModel)]="item.periodStartDate" name="Period Start Date">
+                  </div>
+                  <div class="input-field col s6">
+                    <input type="text" [(ngModel)]="item.periodEndDate" name="Period End Date">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <ng-template #noItems>
+        <mat-card>
+          <h3>There are no past Cycles to list.</h3>
+        </mat-card>
+      </ng-template>
+
+      <br>
+    </div>
+  </div>
+</div>

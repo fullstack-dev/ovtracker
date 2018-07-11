@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>Profile</h2>
+
+      <user-login></user-login>
+
+      <app-subscribe></app-subscribe>
+      <hr>
+
+      <div>
+        <h3>Charge History</h3>
+        <user-charges></user-charges>
+      </div><br>
+
+      <div>
+        <h3>Payment Sources</h3>
+        <div class="card card-content">
+          <user-sources [canSelect]="false"></user-sources>
+        </div>
+      </div><br>
+
+      <div>
+        <h3>Subscriptions</h3>
+        <div class="card card-content">
+          <user-subscriptions></user-subscriptions>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

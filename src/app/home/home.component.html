@@ -1,0 +1,52 @@
+<div class="container-fluid" class="home-pg-header">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="hero-cta-title">Welcome to OvTracker</h2>
+      <p class="hero-cta-p">Your simple, always your data, cycle tracker.</p><br>
+      <p class="hero-cta-p2">Many cycle trackers store your data, but none are agnostic. Here's our solution to allow
+        you to have your data at all times.</p>
+      <button (click)="auth.googleLogin()" class="nav-link hero-cta-button" *ngIf="!(auth.user | async)">
+        <i class="fab fa-google"></i> Login with Google
+      </button>
+    </div>
+    <div class="col-md-4">
+      <div class="hidden-xs" id="logo">
+        <img src="/assets/images/OvTracker-Logo-Symbol.png">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" id="second-half">
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <mat-card [style.backgroundColor]="'#FBF9FB'">
+        <mat-card-title><h3>Step 1</h3><i class="material-icons">input</i></mat-card-title>
+        <mat-card-content class="steps-card">
+          <p>Log in via Google and provide consent to your Google Calendar.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <br>
+
+    <div class="col-sm-4">
+      <mat-card [style.backgroundColor]="'#DBDCE7'">
+        <mat-card-title><h3> Step 2 </h3><i class="material-icons">today</i></mat-card-title>
+        <mat-card-content class="steps-card">
+          <p>Enter your previous and most recent menstruation cycles.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <br>
+
+    <div class="col-sm-4">
+      <mat-card [style.backgroundColor]="'#FECB9A'">
+        <mat-card-title><h3>Step 3</h3><i class="material-icons">update</i></mat-card-title>
+        <mat-card-content class="steps-card">
+          <p>Your current & future cycles will be saved in your own OvTracker calendar within Google Calendar and a
+            Google Sheet.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <br>
+</div>

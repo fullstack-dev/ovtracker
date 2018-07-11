@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta=charset="UTF-8" />
+	<title>Ovulation Calculator</title>
+	<link rel="stylesheet"  type="text/css" href="ovulation_calculator.css" />
+	
+</head>
+<body>
+	<div id="container">
+		<div id="content">
+			<P>ENTER DATE OF PREVIOUS MENSTRUATION 
+				<input type="date" id="previous_period" class="date" />
+			</P>
+			
+			<P>ENTER DATE OF CURRENT MENSTRUATION 
+				<input type="date" id="current_period" class="date" />
+			</P>
+		</div>
+		
+		<p>
+			<button id="button" onclick="ovulationCalculator()">CONTINUE
+			</button>
+		</p>
+			
+		 
+			<section id="section1">
+				<P class="paragraph">YOUR MENSTRUAL CYCLE IS <span id="mCycle"></span><br />
+				<span class="definitions">(The menstrual cycle is the time from the first day of a woman's period to the day before her next period)</span></P>
+				
+				<P class="paragraph">YOU LAST OVULATED ON DAY <span id="ovulation_day"></span> OF YOUR CYCLE EQUIVALENT TO <input type="date" id="last_ovulation" class="date" />
+				<br /><span class="definitions">(Ovulation is the release of egg(s) by the ovaries into the fallopian tube to be fertilized by sperm)</span></P>
+				
+				YOUR OVULATION WINDOW WAS FROM <input type="date" id="ovulation_window1" class="date" /> TO <input type="date" id="ovulation_window2" class="date" />
+				<br /><span class="definitions">(Ovulation window or fertile window refers to the most fertile days in your menstrual cycle which gives you the highest chance of conceiving)</span></P>
+			</section>
+			<section id="section2">
+				<p class="paragraph">YOUR NEXT MENSTRUATION IS ON <input type="date" id="next_mens" class="date" /></p>
+				
+				<P class="paragraph">YOUR NEXT OVULATION IS ON <input type="date" id="next_ovulation" class="date" /></P>
+				
+				<P class="paragraph">OVULATION WINDOW WILL BE BETWEEN <input type="date" id="ovulation_window3" class="date" /> AND <input type="date" id="ovulation_window4" class="date" />
+				<br /><span class="definitions">(Ovulation window or fertile window refers to the most fertile days in your menstrual cycle which gives you the highest chance of conceiving)</span></P>
+				
+				<p>SAFE PERIODS ARE <input type="date" id="safe_period1" class="date" /> TO <input type="date" id="safe_period2" class="date" />
+				AND <input type="date" id="safe_period3" class="date" /> TO <input type="date" id="safe_period4" class="date" /></span>
+				<br /><span class="definitions">(Safe periods are times in which conceiving is not possible)</span></p>
+			</section>
+		 
+	</div>
+	<script type="text/javascript" src="ovulation_calculation.js"></script>
+</body>
+</html>
